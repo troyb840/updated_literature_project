@@ -8,7 +8,11 @@ const axios = require('axios');
 const mongoose = require('mongoose');
 //specify where to find the schema
 
+const Citation = require('./models/citation')
 
+mongoose.connect('mongodb://localhost:27017/literature_project', { useNewUrlParser: true,  useUnifiedTopology: true })
+    .then(() => { console.log("connected"); })
+    .catch(() => { console.log("error connecting"); });
 
 
 //specify which domains can make requests and which methods are allowed
