@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 
 const citationSchema = new mongoose.Schema({
-    author:  { type: String, required: true},
+    citeID: {type: String, required: true},
+    authors:  { type: String, required: true},
     year:  { type: String, required: true},
     title:  { type: String, required: true},
+    publication:  { type: String, required: true},
+    page_numbers:  { type: String, required: true},
     section:  { type: String, required: true},
     full_citation:  { type: String, required: true},
    
