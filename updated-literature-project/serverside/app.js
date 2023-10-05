@@ -9,10 +9,15 @@ const mongoose = require('mongoose');
 //specify where to find the schema
 
 const Citation = require('./models/citation')
+const Test = require('./models/test')
+const Student = require('./models/student')
 
-mongoose.connect('mongodb://localhost:27017/literature_project', { useNewUrlParser: true,  useUnifiedTopology: true })
+
+
+mongoose.connect('mongodb://127.0.0.1:27017/literature_project', { useNewUrlParser: true,  useUnifiedTopology: true })
     .then(() => { console.log("connected"); })
     .catch(() => { console.log("error connecting"); });
+    console.log(mongoose.connection.readyState);
 
 
 //specify which domains can make requests and which methods are allowed
@@ -42,6 +47,35 @@ app.get('/api_test', (req, res, next) => {
     res.json(students);
 
 });
+
+//Test sample mongodb collection
+app.get('/student_test', (req, res, next) => {
+
+    Student.find() 
+        //if data is returned, send data as a response 
+        .then(data => res.status(200).json(data))
+        //if error, send internal server error
+        .catch(err => {
+        console.log('Error: ${err}');
+        res.status(500).json(err);
+    });
+    
+    });
+
+
+///Currently getting error 
+app.get('/query_test', (req, res, next) => {
+
+    Test.find() 
+        //if data is returned, send data as a response 
+        .then(data => res.status(200).json(data))
+        //if error, send internal server error
+        .catch(err => {
+        console.log('Error: ${err}');
+        res.status(500).json(err);
+    });
+    
+    });
 
 
 //to use this middleware in other parts of the application
