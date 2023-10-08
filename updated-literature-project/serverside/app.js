@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 //parse application/json
 app.use(bodyParser.json())
 
-///////////API Call 
+///////////API Calls 
 
 app.get('/api_test', (req, res, next) => {
     //we will add an array named students to pretend that we received this data from the database
@@ -60,10 +60,9 @@ app.get('/student_test', (req, res, next) => {
         res.status(500).json(err);
     });
     
-    });
+});
 
-
-///Currently getting error 
+//Test Query - Find all 
 app.get('/query_test', (req, res, next) => {
 
     Test.find() 
@@ -75,8 +74,61 @@ app.get('/query_test', (req, res, next) => {
         res.status(500).json(err);
     });
     
-    });
+});
+
+//Test keyword query 
+ app.get('/keyword_test', (req, res, next) => {
+
+    Test.find({authors : /Vaishnavi/})
+    .then(data => res.status(200).json(data))
+    .catch(err => {
+        console.log('Error: ${err}')
+        res.status(500).json(err);
+    }) 
+
+});
 
 
-//to use this middleware in other parts of the application
+ //production keyword query test
+ app.get('/keyword_test_prod', (req, res, next) => {
+
+    Citation.find({authors : /Vaishnavi/})
+    .then(data => res.status(200).json(data))
+    .catch(err => {
+        console.log('Error: ${err}')
+        res.status(500).json(err);
+    }) 
+
+});
+
+
+//production - author keyword query 
+app.get('/author/:author_word', (req, res, next) => {
+
+console.log(req.params.author_word)
+
+Citation.find({authors: {$regex: req.params.author_word}})
+.then(data => res.status(200).json(data))
+.catch(err => {
+    console.log('Error: ${err}')
+    res.status(500).json(err);
+    }) 
+
+});  
+
+//production - title keyword query 
+app.get('/title/:title_word', (req, res, next) => {
+
+    console.log(req.params.title_word)
+    
+    Citation.find({title: {$regex: req.params.title_word}})
+    .then(data => res.status(200).json(data))
+    .catch(err => {
+        console.log('Error: ${err}')
+        res.status(500).json(err);
+        }) 
+    
+});    
+
+
 module.exports=app;
