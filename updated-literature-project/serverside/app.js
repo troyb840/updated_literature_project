@@ -12,9 +12,12 @@ const Citation = require('./models/citation')
 const Test = require('./models/test')
 const Student = require('./models/student')
 
+//Dev 
+//mongodb://127.0.0.1:27017/literature_project
 
-
-mongoose.connect('mongodb://127.0.0.1:27017/literature_project', { useNewUrlParser: true,  useUnifiedTopology: true })
+//Production
+//mongodb+srv://Guest:KennesawStateUniversity123@cluster0.1ssbkkd.mongodb.net/
+mongoose.connect('mongodb+srv://Guest:KennesawStateUniversity123@cluster0.1ssbkkd.mongodb.net/literature_project', { useNewUrlParser: true,  useUnifiedTopology: true })
     .then(() => { console.log("connected"); })
     .catch(() => { console.log("error connecting"); });
     console.log(mongoose.connection.readyState);
