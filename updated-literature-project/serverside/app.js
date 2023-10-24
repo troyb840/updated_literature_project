@@ -133,5 +133,79 @@ app.get('/title/:title_word', (req, res, next) => {
     
 });    
 
+//production - section keyword query 
+app.get('/section/:section_word', (req, res, next) => {
+
+    console.log(req.params.section_word)
+    
+    Citation.find({section: {$regex: req.params.section_word}})
+    .then(data => res.status(200).json(data))
+    .catch(err => {
+        console.log('Error: ${err}')
+        res.status(500).json(err);
+        }) 
+    
+});  
+
+//production - year keyword query 
+app.get('/year/:year_word', (req, res, next) => {
+
+    
+    Citation.find().lean().then(function(data){
+        let yearArray = []
+        let year_word = req.params.year_word
+        console.log(data)
+
+
+        for(let i=0; i < data.length; i++){
+            if (data[i].year == year_word){
+                yearArray.push(data[i])
+
+
+
+            }else{
+
+            }
+        }
+        console.log(year_word)
+        res.json(yearArray)
+
+
+    }
+    )
+
+///Filter Ascending Author
+app.get('/ascending/:author_word_ascending', (req, res, next) => {
+
+    console.log(req.params.author_word_ascending)
+    
+    Citation.find({authors: {$regex: req.params.author_word_ascending}})
+    .then(data => res.status(200).json(data))
+    .catch(err => {
+        console.log('Error: ${err}')
+        res.status(500).json(err);
+        }) 
+    
+    });  
+///Filter Descending Author
+
+///Filter Ascending Year
+
+///Filter Descending Year
+
+///Filter Ascending Title
+
+///Filter Descending Title
+
+///Filter Ascending Section
+
+///Filter Descending Section
+
+///IEEE Format
+
+///ACM Format 
+    
+});  
+
 
 module.exports=app;
