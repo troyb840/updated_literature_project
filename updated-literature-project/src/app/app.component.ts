@@ -1,6 +1,9 @@
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormService } from './form.service';
+import {ActivatedRoute, ParamMap, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -13,7 +16,10 @@ export class AppComponent {
 
   outputFormats = ['IEEE', 'ACM', 'APA'];
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private formService: FormService
+  ) {
     this.searchForm = this.fb.group({
       authorQuery: ['', [Validators.pattern('^[a-zA-Z ,.]*$')]],
       yearQuery: ['', [Validators.pattern('^[0-9]*$')]],
@@ -21,6 +27,8 @@ export class AppComponent {
       sectionQuery: ['', [Validators.pattern('^[a-zA-Z0-9 ]*$')]]
     });
   }
+  public test: any 
+
 
   search() {
     if (this.searchForm.valid) {
@@ -31,6 +39,18 @@ export class AppComponent {
 
   changeOutputFormat(event: any) {
     this.selectedOutputFormat = event.target.value;
+  }
+
+  ngOnInit(){
+    this.getTest()
+  }
+
+  getTest() {
+    this.formService.getTest().subscribe(
+        data => { console.log(data)},
+        err => console.error(err),
+        () => console.log('finished loading')
+    );
   }
 }
 

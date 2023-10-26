@@ -3,9 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { FormService } from './form.service';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -16,10 +18,11 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    FormsModule, ReactiveFormsModule
+    FormsModule, ReactiveFormsModule,
+    HttpClientModule
 
   ],
-  providers: [],
+  providers: [FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
