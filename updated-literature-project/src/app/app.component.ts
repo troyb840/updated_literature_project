@@ -42,15 +42,40 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    this.getTest()
+    //this.getTest()
+    this.getKeywordTest()
+    this.getAuthor("Au")
   }
 
-  getTest() {
-    this.formService.getTest().subscribe(
+  // Test to get student json   
+  // getTest() {
+  //   this.formService.getTest().subscribe(
+  //       data => { console.log(data)},
+  //       err => console.error(err),
+  //       () => console.log('finished loading')
+  //   );
+  // }
+
+  //Test Keyword search 
+  getKeywordTest() {
+    this.formService.getKeywordTest().subscribe(
         data => { console.log(data)},
         err => console.error(err),
         () => console.log('finished loading')
     );
   }
+
+  //Production
+  //Author Keyword Search 
+  getAuthor(author: string){
+    this.formService.getAuthor(author).subscribe(
+      data => { console.log(data)},
+      err => console.error(err),
+      () => console.log('finished loading')
+  );
 }
+
+  }
+
+
 

@@ -17,6 +17,16 @@ export class FormService {
         return this.http.get('http://localhost:8000/api_test')
     }
 
+    getKeywordTest(){
+        return this.http.get('http://localhost:8000/keyword_test_prod')
+
+    }
+
+    getAuthor(keyword: string){
+       return this.http.get('http://localhost:8000/author/'+ keyword)
+
+    }
+
 
 
 }
