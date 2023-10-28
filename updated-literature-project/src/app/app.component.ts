@@ -34,6 +34,7 @@ export class AppComponent {
     if (this.searchForm.valid) {
       const formData = this.searchForm.value;
       console.log('Search initiated', formData);
+      console.log(this.searchForm.value.authorQuery)
     }
   }
 
