@@ -1,0 +1,93 @@
+
+<div class="header">
+    Literature Database Entry Form
+  </div>
+
+
+  <div class="create-form">
+    <form *ngIf="createForm" [formGroup]="createForm" (ngSubmit)="create()" novalidate>
+
+     <!-- Authors -->
+     <input type="text" class="create-input" placeholder="Complete List of Authors with commas" formControlName="authors">
+     <div *ngIf="!createForm.controls['authors'].valid && (createForm.controls['authors'].dirty || createForm.controls['authors'].touched)">
+       Please enter the complete list of authors including commas and periods after initials. (required)
+     </div>
+
+     <input type="text" class="create-input" placeholder="First Author" formControlName="author_1">
+     <div *ngIf="!createForm.controls['author_1'].valid && (createForm.controls['author_1'].dirty || createForm.controls['author_1'].touched)">
+       Please enter the last name, comma, first initial of the principal author.
+     </div>
+
+     <input type="text" class="create-input" placeholder="Second Author" formControlName="author_2">
+     <div *ngIf="!createForm.controls['author_2'].valid && (createForm.controls['author_2'].dirty || createForm.controls['author_2'].touched)">
+       Please enter the name, comma, first initial of the second author (optional).
+     </div>
+
+     <input type="text" class="create-input" placeholder="Third Author" formControlName="author_3">
+     <div *ngIf="!createForm.controls['author_3'].valid && (createForm.controls['author_3'].dirty || createForm.controls['author_3'].touched)">
+       Please enter the name, comma, first initial of the third author (optional).
+     </div>
+
+     <input type="text" class="create-input" placeholder="Fourth Author" formControlName="author_4">
+     <div *ngIf="!createForm.controls['author_4'].valid && (createForm.controls['author_4'].dirty || createForm.controls['author_4'].touched)">
+       Please enter the name, comma, first initial of the fourth author (optional).
+     </div>
+
+     <input type="text" class="create-input" placeholder="Fifth Author" formControlName="author_5">
+     <div *ngIf="!createForm.controls['author_5'].valid && (createForm.controls['author_5'].dirty || createForm.controls['author_5'].touched)">
+       Please enter the name, comma, first initial of the fifth author (optional).
+     </div>
+
+     <input type="text" class="create-input" placeholder="Sixth Author" formControlName="author_6">
+     <div *ngIf="!createForm.controls['author_6'].valid && (createForm.controls['author_6'].dirty || createForm.controls['author_6'].touched)">
+       Please enter the name, comma, first initial of the sixth author (optional).
+     </div>
+
+     <input type="text" class="create-input" placeholder="Seventh Author" formControlName="author_7">
+     <div *ngIf="!createForm.controls['author_7'].valid && (createForm.controls['author_7'].dirty || createForm.controls['author_7'].touched)">
+       Please enter the name, comma, first initial of the seventh author (optional).
+     </div>
+
+     <input type="text" class="create-input" placeholder="Eighth Author" formControlName="author_8">
+     <div *ngIf="!createForm.controls['author_8'].valid && (createForm.controls['author_8'].dirty || createForm.controls['author_8'].touched)">
+       Please enter the name, comma, first initial of the eighth author (optional).
+     </div>
+
+     <input type="text" class="create-input" placeholder="Ninth Author" formControlName="author_9">
+     <div *ngIf="!createForm.controls['author_9'].valid && (createForm.controls['author_9'].dirty || createForm.controls['author_9'].touched)">
+       Please enter the name, comma, first initial of the ninth author (optional).
+     </div>
+
+     <input type="text" class="create-input" placeholder="Tenth Author" formControlName="author_10">
+     <div *ngIf="!createForm.controls['author_10'].valid && (createForm.controls['author_10'].dirty || createForm.controls['author_10'].touched)">
+       Please enter the name, comma, first initial of the tenth author (optional).
+     </div>
+
+     <input type="text" class="create-input" placeholder="Year of publication" formControlName="year">
+     <div *ngIf="!createForm.controls['year'].valid && (createForm.controls['year'].dirty || createForm.controls['year'].touched)">
+       Please enter the four digit year of publication (optional).
+     </div>
+
+     <input type="text" class="create-input" placeholder="Title" formControlName="title">
+     <div *ngIf="!createForm.controls['title'].valid && (createForm.controls['title'].dirty || createForm.controls['title'].touched)">
+       Please enter the title (required).
+     </div>
+
+     <input type="text" class="create-input" placeholder="Publication or publisher name" formControlName="publication">
+     <div *ngIf="!createForm.controls['publication'].valid && (createForm.controls['publication'].dirty || createForm.controls['publication'].touched)">
+       Please enter the publication name or publisher name (required).
+     </div>
+
+     <input type="text" class="create-input" placeholder="Page number range" formControlName="page_numbers">
+     <div *ngIf="!createForm.controls['page_numbers'].valid && (createForm.controls['page_numbers'].dirty || createForm.controls['page_numbers'].touched)">
+       Please enter the page number range (optional).
+     </div>
+
+     <input type="text" class="create-input" placeholder="Please enter the section name" formControlName="section">
+     <div *ngIf="!createForm.controls['section'].valid && (createForm.controls['section'].dirty || createForm.controls['section'].touched)">
+       Please enter the name of the category section the citation belongs to (optional).
+     </div>
+
+     <button class="create-btn" type="submit" [disabled]="!createForm.valid || createForm.pristine">Search</button>
+  </form>
+</div>
