@@ -27,6 +27,21 @@ export class FormService {
 
     }
 
+    getYear(keyword: number){
+        return this.http.get('http://localhost:8000/year/'+ keyword)
+ 
+     }
+
+     getTitle(keyword: string){
+        return this.http.get('http://localhost:8000/title/'+ keyword)
+ 
+     }
+
+     getSection(keyword: string){
+        return this.http.get('http://localhost:8000/section/'+ keyword)
+ 
+     }
+
 
 
 }

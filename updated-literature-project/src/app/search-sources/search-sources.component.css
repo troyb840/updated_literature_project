@@ -1,0 +1,34 @@
+.search-input, .output-format-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+  }
+  
+  .output-format-select {
+    background-color: #f0f0f0; /* Background color for the dropdown */
+  }
+  
+  .dropdown label {
+    display: block;
+    margin-bottom: 10px;
+    color: #007BFF;
+    width: 100%;
+  }
+  
+  .search-btn {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  

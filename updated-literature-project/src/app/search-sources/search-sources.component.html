@@ -1,0 +1,68 @@
+
+<div class="header">
+    Literature Database Search
+  </div>
+  
+  <div class="search-form">
+    <form *ngIf="searchForm" [formGroup]="searchForm" (ngSubmit)="search()" novalidate>
+  
+      <!-- Author -->
+      <input type="text" class="search-input" placeholder="Search by Author" formControlName="authorQuery">
+      <div *ngIf="!searchForm.controls['authorQuery'].valid && (searchForm.controls['authorQuery'].dirty || searchForm.controls['authorQuery'].touched)">
+        Please enter a valid value for Author (only letters, spaces, commas, and periods allowed).
+      </div>
+  
+      <!-- Year -->
+      <input type="text" class="search-input" placeholder="Search by Year" formControlName="yearQuery">
+      <div *ngIf="!searchForm.controls['yearQuery'].valid && (searchForm.controls['yearQuery'].dirty || searchForm.controls['yearQuery'].touched)">
+        Please enter a valid value for Year (only numbers allowed).
+      </div>
+  
+      <!-- Title -->
+      <input type="text" class="search-input" placeholder="Search by Title" formControlName="titleQuery">
+      <div *ngIf="!searchForm.controls['titleQuery'].valid && (searchForm.controls['titleQuery'].dirty || searchForm.controls['titleQuery'].touched)">
+        Please enter a valid value for Title (only letters, numbers, and spaces allowed).
+      </div>
+  
+      <!-- Section -->
+      <input type="text" class="search-input" placeholder="Search by Section" formControlName="sectionQuery">
+      <div *ngIf="!searchForm.controls['sectionQuery'].valid && (searchForm.controls['sectionQuery'].dirty || searchForm.controls['sectionQuery'].touched)">
+        Please enter a valid value for Section (only letters, numbers, and spaces allowed).
+      </div>
+  
+   <!-- Format Dropdown -->
+      <div class="dropdown">
+        <label for="citationFormat">Select Citation Format:</label>
+        <select id="citationFormat" class="output-format-select" (change)="changeOutputFormat($event)">
+          <option value="IEEE">IEEE</option>
+          <option value="ACM">ACM</option>
+          <option value="APA">APA</option>
+        </select>
+      </div>
+  
+      <!-- Filter Dropdown -->
+      <div class="dropdown">
+        <label for="filterBy">Filter by:</label>
+        <select id="filterBy" class="output-format-select" (change)="changeOutputFormat($event)">
+          <option value="ascendingAuthor">Ascending Author</option>
+          <option value="descendingAuthor">Descending Author</option>
+          <option value="ascendingYear">Ascending Year</option>
+          <option value="decendingYear">Descending Year</option>
+          <option value="ascendingTitle">Ascending Title</option>
+          <option value="descendingTitle">Descending Title</option>
+          <option value="ascendingSection">Ascending Section</option>
+          <option value="descendingSection">Descending Section</option>
+        </select>
+      </div>
+  
+      <!-- Search Button -->
+      <button class="search-btn" type="submit" [disabled]="!searchForm.valid || searchForm.pristine">Search</button>
+    </form>
+  </div>
+  
+  
+  <!-- Results display area -->
+  <div id="results">
+    <!-- This is where search results will be displayed -->
+  </div>
+  

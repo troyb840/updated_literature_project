@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <title>Source List</title>
+    <body>
+    <h2>Current Sources</h2>
+        <div>
+            <table class="centertable">
+                <tr>
+                    <th>ID</th>
+                    <th>Authors</th>
+                    <th>Year</th>
+                    <th>Title</th>
+                    <th>Section</th>
+                </tr>
+
+                <tr *ngFor = "let source of sources">
+                    <td>{{source._id}}</td>
+                    <td>{{source.authors}}</td>
+                    <td>{{source.year}}</td>
+                    <td>{{source.title}}</td>
+                    <td>{{source.section}}</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

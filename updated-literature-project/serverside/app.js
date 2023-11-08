@@ -91,6 +91,18 @@ app.get('/query_test', (req, res, next) => {
 
 });
 
+//production - get all citations 
+app.get('/citations', (req, res, next) => {
+
+    Citation.find({})
+    .then(data => res.status(200).json(data))
+    .catch(err => {
+        console.log('Error: ${err}')
+        res.status(500).json(err);
+    }) 
+
+});
+
 
  //production keyword query test
  app.get('/keyword_test_prod', (req, res, next) => {
