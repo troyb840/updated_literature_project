@@ -64,5 +64,21 @@
   <!-- Results display area -->
   <div id="results">
     <!-- This is where search results will be displayed -->
-  </div>
+    <h3>Citations</h3>
+    <div>
+      <ul *ngFor ="let test of test let i = index">
+          <li> <b>Authors:</b> {{test.authors}}</li>
+          <li> <b>Title:</b> {{test.title}}</li>
+          <li> <b>Year: </b>{{test.year}}</li>
+          <li> <b>Section:</b> {{test.section}}</li>
+          <li> <b>Publication:</b> {{test.publication}}</li>
+          <li> <b>Citation:</b> {{test.full_citation}}</li>
+
+
+
+
+      </ul>
+    </div>
+    
+</div>
   

@@ -37,17 +37,21 @@ export class SearchSourcesComponent {
       
       ////Enter code to query database
 
-      //Author Search 
-     // this.getAuthor(formData.authorQuery)
+        if(formData.authorQuery != ""){
+          this.getAuthor(formData.authorQuery)
+        }
 
-     //Section Search
-     //this.getSection(formData.sectionQuery)
+        if(formData.sectionQuery != ""){
+          this.getSection(formData.sectionQuery)
+        }
 
-     //Year Search
-     //this.getYear(formData.yearQuery)
+        if(formData.titleQuery != ""){
+          this.getTitle(formData.titleQuery)
+        }
 
-     //Title Search
-     //this.getTitle(formData.titleQuery) 
+        if(formData.yearQuery != ""){
+          this.getYear(formData.yearQuery)
+        }
     }
   }
 
@@ -59,7 +63,7 @@ export class SearchSourcesComponent {
   //Author Keyword Search 
   getAuthor(author: string){
     this.formService.getAuthor(author).subscribe(
-      data => { console.log(data)},
+      data => { this.test=data},
       err => console.error(err),
       () => console.log('finished loading')
   );
@@ -69,7 +73,7 @@ export class SearchSourcesComponent {
   //Year Keyword Search 
   getYear(year: number){
     this.formService.getYear(year).subscribe(
-      data => { console.log(data)},
+      data => { this.test=data},
       err => console.error(err),
       () => console.log('finished loading')
   );
@@ -79,7 +83,7 @@ export class SearchSourcesComponent {
   //Section Keyword Search 
   getSection(section: string){
     this.formService.getSection(section).subscribe(
-      data => { console.log(data)},
+      data => { this.test=data},
       err => console.error(err),
       () => console.log('finished loading')
   );
@@ -89,7 +93,7 @@ export class SearchSourcesComponent {
   //Title Keyword Search 
   getTitle(title: string){
     this.formService.getTitle(title).subscribe(
-      data => { console.log(data)},
+      data => { this.test=data},
       err => console.error(err),
       () => console.log('finished loading')
   );
