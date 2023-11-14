@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+/* Add this to your styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8; /* Set your desired background color */
+  }
+  
+  button {
+    padding: 12px 24px;
+    background-color: #007BFF; /* Set your desired button background color */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold; /* Add bold text */
+    text-shadow: 1px 1px 1px #000; /* Add a black outline */
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    color: #666; /* Adjust the color for disabled state */
+    text-shadow: none; /* Remove the text shadow for disabled state */
+  }
+  
