@@ -21,7 +21,7 @@ import { FormService } from './form.service';
 
 const appRoutes: Routes = [
   {
-path: ' ',
+path: 'home',
 component: HomeComponent},
 
 {
