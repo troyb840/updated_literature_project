@@ -1,7 +1,38 @@
-h2{
-    text-align: center;
+.source-list {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-table {
-    width: 80%;
+.source-list h1 {
+  font-size: 32px;
+  color: #007BFF;
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  margin-bottom: 20px;
+}
+
+#sortOptions {
+  padding: 10px;
+  border: 1px solid #007BFF;
+  border-radius: 5px;
+}
+
+.source-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.source-table th, .source-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.source-table th {
+  background-color: #007BFF;
+  color: white;
 }
