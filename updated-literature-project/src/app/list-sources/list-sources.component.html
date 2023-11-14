@@ -1,26 +1,45 @@
-<!DOCTYPE html>
-<html>
-    <title>Source List</title>
-    <body>
-    <h2>Current Sources</h2>
-        <div>
-            <table class="centertable">
-                <tr>
-                    <th>ID</th>
-                    <th>Authors</th>
-                    <th>Year</th>
-                    <th>Title</th>
-                    <th>Section</th>
-                </tr>
+div class="source-list">
+  <h1>Source List</h1>
 
-                <tr *ngFor = "let source of sources">
-                    <td>{{source._id}}</td>
-                    <td>{{source.authors}}</td>
-                    <td>{{source.year}}</td>
-                    <td>{{source.title}}</td>
-                    <td>{{source.section}}</td>
-                </tr>
-            </table>
-        </div>
-    </body>
-</html>
+  <!-- Sorting Dropdown -->
+  <div class="dropdown">
+    <label for="sortOptions">Sort by:</label>
+    <select id="sortOptions" [(ngModel)]="selectedSortOption" (ngModelChange)="sortSources()">
+      <option value="ascendingAuthor">Ascending Author</option>
+      <option value="descendingAuthor">Descending Author</option>
+      <option value="ascendingTitle">Ascending Title</option>
+      <option value="descendingTitle">Descending Title</option>
+      <option value="ascendingYear">Ascending Year</option>
+      <option value="descendingYear">Descending Year</option>
+      <option value="ascendingSection">Ascending Section</option>
+      <option value="descendingSection">Descending Section</option>
+      <option value="ascendingCitation">Ascending Citation</option>
+      <option value="descendingCitation">Descending Citation</option>
+    </select>
+  </div>
+
+  <!-- Source Table -->
+  <table class="source-table">
+    <thead>
+      <tr>
+        <th>Authors</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Section</th>
+        <th>Full Citation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let source of sortedSources">
+        <td>{{ source.authors }}</td>
+        <td>{{ source.title }}</td>
+        <td>{{ source.year }}</td>
+        <td>{{ source.section }}</td>
+        <td>{{ source.full_citation }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+  
